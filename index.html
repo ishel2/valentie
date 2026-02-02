@@ -2,92 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Will you be my Valentine?</title>
-
-  <!-- Google Font + simple cute style -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Roydan ❤️</title>
 
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: "Poppins", sans-serif;
-      background: url("https://img.freepik.com/premium-photo/pastel-hearts-background_23-2148919295.jpg?w=900") center/cover no-repeat;
       height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      /* 🌸 Background image */
+      background: 
+        linear-gradient(rgba(255,228,225,0.8), rgba(255,228,225,0.8)),
+        url("https://images.unsplash.com/photo-1517841905240-472988babdf9");
+      background-size: cover;
+      background-position: center;
+
+      font-family: 'Poppins', Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
       text-align: center;
-      color: #fff;
-      backdrop-filter: brightness(0.8);
+      max-width: 90%;
+      position: relative;
+      z-index: 2;
     }
 
     h1 {
-      font-family: "Great Vibes", cursive;
-      font-size: 4rem;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-      margin-bottom: 2rem;
+      color: #d02090;
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 6px rgba(255,255,255,0.7);
     }
 
-    .btn {
-      padding: 12px 22px;
-      background: #ff6b81;
-      border: none;
-      color: white;
+    img {
+      width: 200px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .buttons {
+      position: relative;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    button {
+      padding: 14px 32px;
       font-size: 18px;
-      margin: 10px;
-      border-radius: 50px;
+      border: none;
+      border-radius: 12px;
       cursor: pointer;
-      transition: 0.3s ease;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease;
     }
 
-    .btn:hover {
-      transform: scale(1.1);
-      background: #ff4c68;
-    }
-
-    /* falling hearts animation */
-    @keyframes floatUp {
-      0% { transform: translateY(100vh); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: translateY(-10vh); opacity: 0;}
-    }
-    .heart {
-      position: fixed;
-      font-size: 2rem;
-      animation: floatUp 4s infinite;
-      color: #ff4c68;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>Roydan, will you be my Valentine? ❤️</h1>
-
-  <button class="btn" onclick="yes()">Yes 💕</button>
-  <button class="btn" onclick="no()">No 😢</button>
-
-  <!-- falling hearts -->
-  <div class="heart" style="left: 20%; animation-delay: 0s;">❤️</div>
-  <div class="heart" style="left: 40%; animation-delay: 1s;">❤️</div>
-  <div class="heart" style="left: 60%; animation-delay: 2s;">❤️</div>
-  <div class="heart" style="left: 80%; animation-delay: 3s;">❤️</div>
-
-  <!-- music -->
-  <audio id="bgMusic" loop autoplay>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_ef82d816e6.mp3?filename=cute-love-song-1121.mp3" type="audio/mpeg">
-  </audio>
-
-  <script>
-    function yes() {
-      alert("Aww yay! 💖 You made my heart melt!");
-    }
-    function no() {
-      alert("It's okay… I'll still love you 💞");
-    }
-  </script>
-
-</body>
-</html>
+    #yesBtn {
+      backgroun
