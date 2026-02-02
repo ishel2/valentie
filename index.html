@@ -1,293 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Roydan ❤️</title>
-    <style>
-        body {
-            background-color: #fff0f3;<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Valentine 💖</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Will you be my Valentine?</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+  <!-- Google Font + simple cute style -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
-<style>
-* { box-sizing: border-box; }
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      background: url("https://img.freepik.com/premium-photo/pastel-hearts-background_23-2148919295.jpg?w=900") center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      backdrop-filter: brightness(0.8);
+    }
 
-body {
-  margin: 0;
-  height: 100vh;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden;
-}
+    h1 {
+      font-family: "Great Vibes", cursive;
+      font-size: 4rem;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+      margin-bottom: 2rem;
+    }
 
-.card {
-  background: white;
-  padding: 2rem;
-  border-radius: 25px;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-  width: 90%;
-  max-width: 420px;
-  animation: pop 0.6s ease;
-}
+    .btn {
+      padding: 12px 22px;
+      background: #ff6b81;
+      border: none;
+      color: white;
+      font-size: 18px;
+      margin: 10px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    }
 
-@keyframes pop {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
+    .btn:hover {
+      transform: scale(1.1);
+      background: #ff4c68;
+    }
 
-h1 {
-  font-family: 'Pacifico', cursive;
-  color: #ff4d6d;
-  font-size: 2.2rem;
-}
-
-p {
-  font-size: 1rem;
-  color: #555;
-}
-
-.buttons {
-  margin-top: 2rem;
-  position: relative;
-  height: 90px;
-}
-
-button {
-  padding: 14px 26px;
-  border: none;
-  border-radius: 40px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  position: absolute;
-  transition: 0.2s ease;
-}
-
-#yes {
-  background: #ff4d6d;
-  color: white;
-  left: 40px;
-  box-shadow: 0 0 20px #ff4d6d;
-}
-
-#no {
-  background: #ddd;
-  right: 40px;
-}
-
-.hidden { display: none; }
-
-.heart {
-  position: fixed;
-  bottom: -10px;
-  font-size: 22px;
-  animation: float 4s linear forwards;
-}
-
-@keyframes float {
-  to {
-    transform: translateY(-120vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-.confetti {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  background: red;
-  top: -10px;
-  animation: fall 3s linear forwards;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(110vh) rotate(720deg);
-    opacity: 0;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<audio id="music" loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
-
-<div class="card" id="intro">
-  <h1 id="typing"></h1>
-  <p>Don’t panic. Just vibes 😌</p>
-</div>
-
-<div class="card hidden" id="question">
-  <h1>Will you be my Valentine? 💕</h1>
-  <p>Think carefully 😏</p>
-
-  <div class="buttons">
-    <button id="yes">YES 💖</button>
-    <button id="no">NO 😒</button>
-  </div>
-</div>
-
-<div class="card hidden" id="result">
-  <h1>YAYYYY 🥹💘</h1>
-  <p>
-    You’re officially my Valentine 💖<br>
-    Screenshot this because it’s permanent 😌
-  </p>
-</div>
-
-<script>
-const text = "Hey… I have something important to ask 💌";
-let i = 0;
-const typing = document.getElementById("typing");
-const intro = document.getElementById("intro");
-const question = document.getElementById("question");
-const result = document.getElementById("result");
-const yesBtn = document.getElementById("yes");
-const noBtn = document.getElementById("no");
-const music = document.getElementById("music");
-
-function typeEffect() {
-  if (i < text.length) {
-    typing.innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeEffect, 80);
-  } else {
-    setTimeout(() => {
-      intro.classList.add("hidden");
-      question.classList.remove("hidden");
-    }, 800);
-  }
-}
-typeEffect();
-
-noBtn.addEventListener("mouseover", () => {
-  const x = Math.random() * 250 - 125;
-  const y = Math.random() * 200 - 100;
-  noBtn.style.transform = `translate(${x}px, ${y}px)`;
-});
-
-yesBtn.addEventListener("click", () => {
-  question.classList.add("hidden");
-  result.classList.remove("hidden");
-  music.play();
-  hearts();
-  confetti();
-});
-
-function hearts() {
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerText = "💖";
-    heart.style.left = Math.random() * 100 + "vw";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 4000);
-  }, 250);
-}
-
-function confetti() {
-  for (let i = 0; i < 120; i++) {
-    const c = document.createElement("div");
-    c.className = "confetti";
-    c.style.left = Math.random() * 100 + "vw";
-    c.style.background = `hsl(${Math.random()*360},100%,50%)`;
-    document.body.appendChild(c);
-    setTimeout(() => c.remove(), 3000);
-  }
-}
-</script>
-
-</body>
-</html>
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-        }
-        .card {
-            background: white;
-            padding: 3rem;
-            border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.5);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-        h1 { color: #ff4d6d; font-size: 1.8rem; margin: 20px 0; }
-        img { width: 100%; max-width: 250px; border-radius: 20px; }
-        .btns {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-            min-height: 100px;
-        }
-        button {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-        #yesBtn { background-color: #ff4d6d; color: white; box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3); }
-        #noBtn { background-color: #ffb3c1; color: #ff4d6d; }
-    </style>
+    /* falling hearts animation */
+    @keyframes floatUp {
+      0% { transform: translateY(100vh); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0;}
+    }
+    .heart {
+      position: fixed;
+      font-size: 2rem;
+      animation: floatUp 4s infinite;
+      color: #ff4c68;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="card" id="mainCard">
-        <img id="displayImg" src="https://i.pinimg.com/originals/f5/00/f3/f500f3060f6074a3f47e384ba7e491f0.gif" alt="Cute Bear">
-        <h1 id="text">Roydan, will you be my Valentine? ❤️</h1>
-        <div class="btns">
-            <button id="yesBtn">Yes!</button>
-            <button id="noBtn">No</button>
-        </div>
-    </div>
+  <h1>Roydan, will you be my Valentine? ❤️</h1>
 
-    <script>
-        const yesBtn = document.getElementById('yesBtn');
-        const noBtn = document.getElementById('noBtn');
-        const img = document.getElementById('displayImg');
-        const text = document.getElementById('text');
-        const btns = document.querySelector('.btns');
-        let yesSize = 1.1;
+  <button class="btn" onclick="yes()">Yes 💕</button>
+  <button class="btn" onclick="no()">No 😢</button>
 
-        noBtn.addEventListener('mouseover', () => {
-            // Move the "No" button
-            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-            noBtn.style.position = 'fixed';
-            noBtn.style.left = x + 'px';
-            noBtn.style.top = y + 'px';
-            
-            // Make "Yes" bigger
-            yesSize += 0.2;
-            yesBtn.style.transform = `scale(${yesSize})`;
-        });
+  <!-- falling hearts -->
+  <div class="heart" style="left: 20%; animation-delay: 0s;">❤️</div>
+  <div class="heart" style="left: 40%; animation-delay: 1s;">❤️</div>
+  <div class="heart" style="left: 60%; animation-delay: 2s;">❤️</div>
+  <div class="heart" style="left: 80%; animation-delay: 3s;">❤️</div>
 
-        yesBtn.addEventListener('click', () => {
-            img.src = "https://i.pinimg.com/originals/96/6b/29/966b299e52c8b86e0c608f6b0f8546c2.gif";
-            text.innerHTML = "Yay! See you on the 14th, Roydan! ❤️";
-            btns.style.display = 'none';
-        });
-    </script>
+  <!-- music -->
+  <audio id="bgMusic" loop autoplay>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_ef82d816e6.mp3?filename=cute-love-song-1121.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function yes() {
+      alert("Aww yay! 💖 You made my heart melt!");
+    }
+    function no() {
+      alert("It's okay… I'll still love you 💞");
+    }
+  </script>
+
 </body>
 </html>
