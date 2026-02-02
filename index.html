@@ -1,31 +1,88 @@
 <!DOCTYPE html>
-<html>
-<body style="background-color:pink; text-align:center; font-family:sans-serif;">
-    <div id="box">
-        <img id="pic" src="https://media.tenor.com/9lS8oWpY_mUAAAAi/mocha-milk.gif" width="250">
-        <h1>Roydan, will you be my Valentine? ❤️</h1>
-        <button id="y" style="font-size:20px; padding:10px 20px;">Yes!</button>
-        <button id="n" style="font-size:20px; padding:10px 20px;">No</button>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Roydan ❤️</title>
+    <style>
+        body {
+            background-color: #fff0f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+        .card {
+            background: white;
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.5);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        h1 { color: #ff4d6d; font-size: 1.8rem; margin: 20px 0; }
+        img { width: 100%; max-width: 250px; border-radius: 20px; }
+        .btns {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            min-height: 100px;
+        }
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        #yesBtn { background-color: #ff4d6d; color: white; box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3); }
+        #noBtn { background-color: #ffb3c1; color: #ff4d6d; }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="mainCard">
+        <img id="displayImg" src="https://i.pinimg.com/originals/f5/00/f3/f500f3060f6074a3f47e384ba7e491f0.gif" alt="Cute Bear">
+        <h1 id="text">Roydan, will you be my Valentine? ❤️</h1>
+        <div class="btns">
+            <button id="yesBtn">Yes!</button>
+            <button id="noBtn">No</button>
+        </div>
     </div>
 
     <script>
-        const y = document.getElementById('y');
-        const n = document.getElementById('n');
-        let s = 20;
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const img = document.getElementById('displayImg');
+        const text = document.getElementById('text');
+        const btns = document.querySelector('.btns');
+        let yesSize = 1.1;
 
-        n.onmouseover = () => {
-            n.style.position = 'absolute';
-            n.style.left = Math.random() * 80 + '%';
-            n.style.top = Math.random() * 80 + '%';
-            s += 10;
-            y.style.fontSize = s + 'px';
-        };
+        noBtn.addEventListener('mouseover', () => {
+            // Move the "No" button
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+            
+            // Make "Yes" bigger
+            yesSize += 0.2;
+            yesBtn.style.transform = `scale(${yesSize})`;
+        });
 
-        y.onclick = () => {
-            document.getElementById('box').innerHTML = `
-                <img src="https://media.tenor.com/97y_D0S898YAAAAC/milk-and-mocha-bear-couple.gif" width="250">
-                <h1>Yay! See you on the 14th, Roydan! ❤️</h1>`;
-        };
+        yesBtn.addEventListener('click', () => {
+            img.src = "https://i.pinimg.com/originals/96/6b/29/966b299e52c8b86e0c608f6b0f8546c2.gif";
+            text.innerHTML = "Yay! See you on the 14th, Roydan! ❤️";
+            btns.style.display = 'none';
+        });
     </script>
 </body>
 </html>
