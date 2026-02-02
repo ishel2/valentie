@@ -1,88 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Roydan ❤️</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #ffe4e1;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            overflow: hidden;
-        }
-        .container { text-align: center; }
-        h1 { color: #d02090; font-size: 2.5rem; margin-bottom: 20px; }
-        img { width: 200px; border-radius: 15px; margin-bottom: 20px; }
-        .buttons { display: flex; gap: 20px; justify-content: center; align-items: center; }
-        
-        #yesBtn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 32px;
-            font-size: 18px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        
-        #noBtn {
-            background-color: #f44336;
-            color: white;
-            padding: 15px 32px;
-            font-size: 18px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            position: relative;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container" id="mainContainer">
-        <img id="statusGif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwdXNnZHF0emV4Ynl6bmR6Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute Cat">
-        <h1 id="question">Roydan, will you be my Valentine? ❤️</h1>
-        <div class="buttons">
-            <button id="yesBtn">Yes!</button>
-            <button id="noBtn">No</button>
-        </div>
+<html>
+<body style="background-color:pink; text-align:center; font-family:sans-serif;">
+    <div id="box">
+        <img id="pic" src="https://media.tenor.com/9lS8oWpY_mUAAAAi/mocha-milk.gif" width="250">
+        <h1>Roydan, will you be my Valentine? ❤️</h1>
+        <button id="y" style="font-size:20px; padding:10px 20px;">Yes!</button>
+        <button id="n" style="font-size:20px; padding:10px 20px;">No</button>
     </div>
 
     <script>
-        const yesBtn = document.getElementById('yesBtn');
-        const noBtn = document.getElementById('noBtn');
-        const statusGif = document.getElementById('statusGif');
-        const question = document.getElementById('question');
-        let yesSize = 18;
+        const y = document.getElementById('y');
+        const n = document.getElementById('n');
+        let s = 20;
 
-        // When "No" is hovered, it jumps away
-        noBtn.addEventListener('mouseover', () => {
-            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-            noBtn.style.position = 'absolute';
-            noBtn.style.left = x + 'px';
-            noBtn.style.top = y + 'px';
-            
-            // Make "Yes" button grow every time they try to hit "No"
-            yesSize += 10;
-            yesBtn.style.fontSize = yesSize + 'px';
-            yesBtn.style.padding = (yesSize/1.2) + 'px ' + (yesSize*2) + 'px';
-        });
+        n.onmouseover = () => {
+            n.style.position = 'absolute';
+            n.style.left = Math.random() * 80 + '%';
+            n.style.top = Math.random() * 80 + '%';
+            s += 10;
+            y.style.fontSize = s + 'px';
+        };
 
-        // When "Yes" is clicked
-        yesBtn.addEventListener('click', () => {
-            document.getElementById('mainContainer').innerHTML = `
-                <img src="https://media.tenor.com/97y_D0S898YAAAAC/milk-and-mocha-bear-couple.gif">
-                <h1>Yay! See you on the 14th, Roydan! ❤️</h1>
-            `;
-        });
+        y.onclick = () => {
+            document.getElementById('box').innerHTML = `
+                <img src="https://media.tenor.com/97y_D0S898YAAAAC/milk-and-mocha-bear-couple.gif" width="250">
+                <h1>Yay! See you on the 14th, Roydan! ❤️</h1>`;
+        };
     </script>
 </body>
 </html>
